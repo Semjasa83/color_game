@@ -78,4 +78,7 @@ button:hover {
     padding: 20px;
 }
 
-
+.selected {
+    background: steelblue;
+    color: white;
+}
