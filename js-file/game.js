@@ -34,17 +34,15 @@ function createCubes() {
   let container = document.querySelector(".items");
   container.innerHTML = "";
   for (let i = 0; i < amount ; i++) {
-    let cube = document.createElement("div");
-    cube.classList.add("square");
     let color = randomColor();
-    cube.style.backgroundColor = color;
+    container.innerHTML +=`
+    <div class="square" style="background-color: ${color}"> ${color} </div>`
     colors.push(color);
-    container.appendChild(cube);
   }
   console.log(colors);
-  // let randomIndex = Math.floor(Math.random() * colors.length);
-  // let rgbCodeElement = document.querySelector("#rgbCode");
-  // rgbCodeElement.textContent = colors[randomIndex];
+  let randomIndex = Math.floor(Math.random() * colors.length);
+  let rgbCodeElement = document.querySelector("#rgbCode");
+  rgbCodeElement.textContent = colors[randomIndex];
 }
 
 function randomColor() {
@@ -53,3 +51,30 @@ function randomColor() {
   let b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
 }
+
+
+
+
+
+
+
+
+
+
+// function createCubes() {
+//   let amount = value;
+//   let container = document.querySelector(".items");
+//   container.innerHTML = "";
+//   for (let i = 0; i < amount ; i++) {
+//     let cube = document.createElement("div");
+//     cube.classList.add("square");
+//     let color = randomColor();
+//     cube.style.backgroundColor = color;
+//     cube.textContent = color;
+//     container.appendChild(cube);
+//   }
+//   console.log(colors);
+//   let randomIndex = Math.floor(Math.random() * colors.length);
+//   let rgbCodeElement = document.querySelector("#rgbCode");
+//   rgbCodeElement.textContent = colors[randomIndex];
+// }
