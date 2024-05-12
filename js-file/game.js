@@ -26,7 +26,6 @@ function setDifficulty() { //done
       createCubes();
     });
   });
-
 }
 
 function createCubes() {
@@ -36,7 +35,7 @@ function createCubes() {
   for (let i = 0; i < amount ; i++) {
     let color = randomColor();
     container.innerHTML +=`
-    <div class="square" style="background-color: ${color}"> ${color} </div>`
+    <div class="square" style="background-color: ${color}" onclick="checkColor(event)"> ${color} </div>`
     colors.push(color);
   }
   console.log(colors);
@@ -49,10 +48,36 @@ function randomColor() {
   let r = Math.floor(Math.random() * 256);
   let g = Math.floor(Math.random() * 256);
   let b = Math.floor(Math.random() * 256);
-  return `rgb(${r},${g},${b})`;
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
+function resetCubes() {
+  colors = [];
+  createCubes();
+}
 
+function checkColor(event) {
+  let clickedColor = event.target.style.backgroundColor;
+  let correctColor = String(document.querySelector("#rgbCode").textContent);
+  console.log(clickedColor, correctColor);
+  if (clickedColor === correctColor) {
+    alert("Richtig!");
+    setTimeout(resetCubes, 3000);
+  } else {
+    alert("Falsch!");
+  }
+
+/*    let clickedColor = event.target.style.backgroundColor;
+    let rgbCodeElement = document.querySelector("#rgbCode");
+    let rgbCode = rgbCodeElement.textContent;
+    if (clickedColor === rgbCode) {
+        alert("Richtig!");
+    } else {
+        alert("Falsch!");
+    }
+    resetCubes();*/
+
+}
 
 
 
