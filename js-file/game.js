@@ -35,7 +35,7 @@ function createCubes() {
   for (let i = 0; i < amount ; i++) {
     let color = randomColor();
     container.innerHTML +=`
-    <div class="square" style="background-color: ${color}" onclick="checkColor(event)"> ${color} </div>`
+    <div class="square" style="background-color: ${color}" onclick="checkColor(event)"> False </div>`
     colors.push(color);
   }
   console.log(colors);
@@ -61,10 +61,10 @@ function checkColor(event) {
   let correctColor = String(document.querySelector("#rgbCode").textContent);
   console.log(clickedColor, correctColor);
   if (clickedColor === correctColor) {
-    alert("Richtig!");
+    event.target.innerHTML = `<span class="check-information">Right</span>`;
     setTimeout(resetCubes, 3000);
   } else {
-    alert("Falsch!");
+    event.target.innerHTML = `<span class="check-information">Wrong Color: ${clickedColor}</span>`;
   }
 
 /*    let clickedColor = event.target.style.backgroundColor;
