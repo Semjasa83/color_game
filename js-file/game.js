@@ -35,7 +35,9 @@ function createCubes() {
   for (let i = 0; i < amount ; i++) {
     let color = randomColor();
     container.innerHTML +=`
-    <div class="square" style="background-color: ${color}" onclick="checkColor(event)"> False </div>`
+    <div class="square-wrapper">
+    <div class="square" style="background-color: ${color}" onclick="checkColor(event)"></div>
+    </div>`
     colors.push(color);
   }
   console.log(colors);
@@ -66,40 +68,4 @@ function checkColor(event) {
   } else {
     event.target.innerHTML = `<span class="check-information">Wrong Color: ${clickedColor}</span>`;
   }
-
-/*    let clickedColor = event.target.style.backgroundColor;
-    let rgbCodeElement = document.querySelector("#rgbCode");
-    let rgbCode = rgbCodeElement.textContent;
-    if (clickedColor === rgbCode) {
-        alert("Richtig!");
-    } else {
-        alert("Falsch!");
-    }
-    resetCubes();*/
-
 }
-
-
-
-
-
-
-
-
-// function createCubes() {
-//   let amount = value;
-//   let container = document.querySelector(".items");
-//   container.innerHTML = "";
-//   for (let i = 0; i < amount ; i++) {
-//     let cube = document.createElement("div");
-//     cube.classList.add("square");
-//     let color = randomColor();
-//     cube.style.backgroundColor = color;
-//     cube.textContent = color;
-//     container.appendChild(cube);
-//   }
-//   console.log(colors);
-//   let randomIndex = Math.floor(Math.random() * colors.length);
-//   let rgbCodeElement = document.querySelector("#rgbCode");
-//   rgbCodeElement.textContent = colors[randomIndex];
-// }
