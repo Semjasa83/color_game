@@ -2,6 +2,7 @@
 
 let value = 6;
 let colors = [];
+let message = document.querySelector("#message");
 
 function init() {
   checkDifficulty();
@@ -12,7 +13,6 @@ function init() {
 function checkDifficulty() { //done
   let selectedDifficulty = $("button.selected");
   value = selectedDifficulty.val();
-  console.log('schwierigkeit',value);
 }
 
 function setDifficulty() { //done
@@ -41,7 +41,6 @@ function createCubes() {
     </div>`
     colors.push(color);
   }
-  console.log(colors);
   let randomIndex = Math.floor(Math.random() * colors.length);
   let rgbCodeElement = document.querySelector("#rgbCode");
   rgbCodeElement.textContent = colors[randomIndex];
@@ -62,8 +61,6 @@ function resetCubes() {
 function checkColor(event) {
   let clickedColor = event.target.style.backgroundColor;
   let correctColor = String(document.querySelector("#rgbCode").textContent);
-  let message= document.querySelector("#message");
-  console.log(clickedColor, correctColor);
   if (clickedColor === correctColor) {
     message.innerHTML = `<span class="check-information"><span class="success-information">Right</span></span>`;
     setTimeout(resetCubes, 3000);
@@ -71,6 +68,6 @@ function checkColor(event) {
     message.innerHTML = `<span class="check-information"><span class="error-information">${clickedColor}</span></span>`;
     setTimeout(() => {
       message.innerHTML = "";
-    }, 2000);
+    }, 1500);
   }
 }
