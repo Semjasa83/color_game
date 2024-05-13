@@ -31,6 +31,7 @@ function setDifficulty() { //done
 function createCubes() {
   let amount = value;
   let container = document.querySelector(".items");
+  message.innerHTML = "";
   container.innerHTML = "";
   for (let i = 0; i < amount ; i++) {
     let color = randomColor();
@@ -61,11 +62,15 @@ function resetCubes() {
 function checkColor(event) {
   let clickedColor = event.target.style.backgroundColor;
   let correctColor = String(document.querySelector("#rgbCode").textContent);
+  let message= document.querySelector("#message");
   console.log(clickedColor, correctColor);
   if (clickedColor === correctColor) {
-    event.target.innerHTML = `<span class="check-information">Right</span>`;
+    message.innerHTML = `<span class="check-information"><span class="success-information">Right</span></span>`;
     setTimeout(resetCubes, 3000);
   } else {
-    event.target.innerHTML = `<span class="check-information">Wrong Color: ${clickedColor}</span>`;
+    message.innerHTML = `<span class="check-information"><span class="error-information">${clickedColor}</span></span>`;
+    setTimeout(() => {
+      message.innerHTML = "";
+    }, 2000);
   }
 }
