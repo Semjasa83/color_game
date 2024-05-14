@@ -53,16 +53,12 @@ function randomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-function resetCubes() {
-  colors = [];
-  createCubes();
-}
-
 function checkColor(event) {
   let clickedColor = event.target.style.backgroundColor;
   let correctColor = String(document.querySelector("#rgbCode").textContent);
   if (clickedColor === correctColor) {
     message.innerHTML = `<span class="check-information"><span class="success-information">Right</span></span>`;
+    preventClick();
     setTimeout(resetCubes, 3000);
   } else {
     message.innerHTML = `<span class="check-information"><span class="error-information">${clickedColor}</span></span>`;
@@ -70,4 +66,16 @@ function checkColor(event) {
       message.innerHTML = "";
     }, 1500);
   }
+}
+
+function resetCubes() {
+  colors = [];
+  createCubes();
+}
+
+function preventClick() {
+  let squares = document.querySelectorAll(".square");
+  squares.forEach(square => {
+    square.style.pointerEvents = "none";
+  });
 }

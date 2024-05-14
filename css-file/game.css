@@ -1,7 +1,3 @@
-/*
- * Copyright (c) CodeEngine Academy by Markus Lech.
- */
-
 body {
     background-color: #232323;
     margin: 0;
@@ -16,7 +12,7 @@ header {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    align-items: center;
+    align-items: flex-start;
     padding: 2rem;
     color: #333333;
 }
@@ -54,7 +50,7 @@ header {
     text-transform: uppercase;
     font-family: sans-serif;
     height: fit-content;
-    width: 12rem;
+    width: 7rem;
     padding: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -64,35 +60,47 @@ header {
     -moz-transition: all 0.5s;
     outline: none;
     cursor: pointer;
+    border-radius: 1rem 0 0 1rem;
+    border-left: 3px solid whitesmoke;
+    border-bottom: 3px solid whitesmoke;
+    border-top: 3px solid whitesmoke;
 }
 
 #reset:hover {
     color: steelblue;
     background: whitesmoke;
+    border-left: 3px solid #232323;
+    border-bottom: 3px solid #232323;
+    border-top: 3px solid #232323;
 }
 
 .section-wrapper {
     display: flex;
     flex-direction: row-reverse;
+    position: relative;
 }
 
 #stripe {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     justify-content: space-between;
-    background: whitesmoke;
-    /* height: 30px; */
-    height: 100%;
-    text-align: center;
-    color: steelblue;
+    background: #232323;
+    height: 6rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7rem;
+    border-radius: 0 0 0 1rem;
+    border-left: 3px solid whitesmoke;
+    border-bottom: 3px solid whitesmoke;
 }
 
 #message {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12rem;
+    width: 100%;
+    height: 100%;
 }
 
 .difficulty-settings {
@@ -103,9 +111,12 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 12rem;
+    width: 7rem;
     background-color: whitesmoke;
     color: steelblue;
+    border-left: 3px solid #232323;
+    border-top: 3px solid #232323;
+    border-radius: 1rem 0 0 0;
 }
 
 .difficulty {
@@ -117,7 +128,7 @@ header {
     width: 100%;
     padding: 0.5rem;
     font-weight: 700;
-    color: #265ba0;
+    color: steelblue;
     letter-spacing: 1px;
     font-size: inherit;
     transition: all 0.5s;
@@ -127,13 +138,16 @@ header {
 }
 
 .difficulty:hover {
-    color: whitesmoke;
+    color: steelblue;
     background: #232323;
+}
+
+.difficulty:first-child:hover {
+    border-radius: 0.9rem 0 0 0;
 }
 
 .container {
     display: flex;
-    justify-content: center;
     padding: 1rem;
     width: 100%;
     height: 100%;
@@ -159,7 +173,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     text-align: center;
     height: 100%;
     width: 100%;
@@ -174,7 +188,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    color-interpolation: auto;
 } 
 
 .success-information {
